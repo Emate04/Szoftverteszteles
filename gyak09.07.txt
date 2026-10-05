@@ -1,0 +1,55 @@
+1. feladat
+	
+	9000 jó
+	10000 nem jó mert discount kéne rá, de a kód alapján nincs
+	25000 jó
+	50000 nem jó, mert 15% kedvezmény kéne rá, de az egyenlőség jel miatt 10% jár csak
+	a negatív érték nincs megvizsgálva
+	vip kezelésnél rossz discount hozzáadás, mert csak 0,05 kellene
+
+2. feladat
+	
+	első 15 perc ingyenes ezért minutes<=15
+	Math.Ceil használata a felfelé kerekítéshez, mert 59 percnél 0ra kerekít
+	vip esetén a fee = fee*0.8; szorzásra lenne szükség a 20% kedvezményhez
+
+3. feladat
+	
+	jelenleg 6 évesen is még ingyen lenne, ezért törölni kell az egyenlőségjelet if (age < 6)
+	65 éves kortól kellene 40 % kedvezmény de az egyenlőségjel nincs ott ezért alapból csak 66 évestől adna
+	3d esetén nem a price = price * 1.8; ra van szükség, hanem price += 800;
+	if age<0 || age>120 az életkor határok ellenőrzésére
+	nincs kezelve, hogy a legnagyobb kedvezményt használja és ne szorozza össze a kedvezményeket
+
+4. feladat
+
+	nem ellenőrzi a túl sok vagy negatív pontszámot
+	ponthatárok el vannak tolódva: total < 60 2-es, total <70 3-as, total <85 4-es
+	theory < 30 && practice < 20 helyett theory < 30 || practice < 20
+
+
+5. feladat
+	
+	0 vagy negatívra small-t ad invalid helyett
+	small kategóránál < helyett <= kell
+	mediumnál || helyett && kell
+	a medium logikai hiba miatt a large vagy oversize csomagokat mediumnak veszi fel
+6. feladat
+
+		Bemenet			Elvárt eredmény		Tényleges eredmény
+1	10000, 3, "HU", false		1500 Ft			1500 Ft
+2	10000, 5, "HU", false		2500 Ft			5000 Ft
+3	10000, 10, "HU", false		2500 Ft			2500 Ft
+4	10000, 20, "HU", false		2500 Ft			5000 Ft
+5	20000, 10, "HU", false		2500 Ft			0 Ft
+6	25000, 10, "HU", false		0 Ft			0 Ft
+7	10000, 3, "HU", true		2250 Ft			1550 Ft
+8	10000, 3, "AT", true		4500 Ft			3050 Ft
+9	-500, 10, "HU", false		Hiba a negatív miatt	2500 Ft
+10	10000, -2, "HU", false		Hiba a negatív miatt	1500 Ft
+
+	else if (weight >= 5 && weight <= 20)
+	countrynál csak a nagy betűs HU-t vizsgálja kisbetűvel nem
+	orderValue >= 20000 nem kell az egyenlőségjel
+	shippingCost * 1.5 az expressz szállításnál
+	nem ellenőrzi a negatív adatokat, illetve az országkódnál sem, hogy biztosan 2 betűvel van megadva
